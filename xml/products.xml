@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <Code>13</Code>
+    <ProductName>מחזור אור חדש אשכנז</ProductName>
+    <Category>מחזורים</Category>
+    <Price>1500</Price>
+    <AmountInStock>5</AmountInStock>
+  </Product>
+</ArrayOfProduct>
