@@ -63,6 +63,10 @@
             label10 = new Label();
             productsList = new ListBox();
             label6 = new Label();
+            filterByName = new TextBox();
+            label7 = new Label();
+            filterCategory = new ComboBox();
+            label11 = new Label();
             productsTabControl.SuspendLayout();
             addProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)amountInput).BeginInit();
@@ -147,6 +151,7 @@
             // addProductBtn
             // 
             addProductBtn.BackColor = SystemColors.ActiveCaption;
+            addProductBtn.Cursor = Cursors.Hand;
             addProductBtn.Location = new Point(68, 313);
             addProductBtn.Name = "addProductBtn";
             addProductBtn.Size = new Size(277, 61);
@@ -214,6 +219,7 @@
             // searchBtn
             // 
             searchBtn.BackColor = SystemColors.ActiveCaption;
+            searchBtn.Cursor = Cursors.Hand;
             searchBtn.Location = new Point(99, 67);
             searchBtn.Margin = new Padding(2, 3, 2, 3);
             searchBtn.Name = "searchBtn";
@@ -278,6 +284,7 @@
             // updateBtn
             // 
             updateBtn.BackColor = SystemColors.ActiveCaption;
+            updateBtn.Cursor = Cursors.Hand;
             updateBtn.Location = new Point(99, 323);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(211, 60);
@@ -334,6 +341,7 @@
             // deleteBtn
             // 
             deleteBtn.BackColor = SystemColors.ActiveCaption;
+            deleteBtn.Cursor = Cursors.Hand;
             deleteBtn.Location = new Point(106, 254);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(195, 45);
@@ -386,6 +394,7 @@
             // showDetailsProduct
             // 
             showDetailsProduct.BackColor = SystemColors.ActiveCaption;
+            showDetailsProduct.Cursor = Cursors.Hand;
             showDetailsProduct.Location = new Point(25, 65);
             showDetailsProduct.Name = "showDetailsProduct";
             showDetailsProduct.Size = new Size(356, 45);
@@ -415,10 +424,10 @@
             productsList.Font = new Font("Bamberger Grunge FM", 17.9999981F);
             productsList.FormattingEnabled = true;
             productsList.ItemHeight = 33;
-            productsList.Location = new Point(609, 115);
+            productsList.Location = new Point(609, 155);
             productsList.Margin = new Padding(2, 3, 2, 3);
             productsList.Name = "productsList";
-            productsList.Size = new Size(344, 400);
+            productsList.Size = new Size(344, 367);
             productsList.TabIndex = 2;
             productsList.SelectedIndexChanged += productsList_SelectedIndexChanged;
             // 
@@ -427,7 +436,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Bamberger Grunge FM Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 177);
             label6.ForeColor = SystemColors.ActiveCaption;
-            label6.Location = new Point(844, 50);
+            label6.Location = new Point(844, 9);
             label6.Name = "label6";
             label6.RightToLeft = RightToLeft.Yes;
             label6.Size = new Size(109, 44);
@@ -435,11 +444,58 @@
             label6.Text = "מוצרים:";
             label6.Click += label6_Click;
             // 
+            // filterByName
+            // 
+            filterByName.Font = new Font("Bamberger Grunge FM", 17.9999981F);
+            filterByName.Location = new Point(609, 71);
+            filterByName.Name = "filterByName";
+            filterByName.Size = new Size(238, 41);
+            filterByName.TabIndex = 16;
+            filterByName.TextChanged += filterByName_TextChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Bamberger Grunge FM", 17.9999981F);
+            label7.Location = new Point(853, 79);
+            label7.Name = "label7";
+            label7.Size = new Size(100, 33);
+            label7.TabIndex = 15;
+            label7.Text = "סנן לפי שם";
+            // 
+            // filterCategory
+            // 
+            filterCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            filterCategory.Font = new Font("Arial Narrow", 16.2F);
+            filterCategory.FormattingEnabled = true;
+            filterCategory.Items.AddRange(new object[] { "מחזורים", "סידורים", "כיפות", "נרתיקי תפילין", "הטבעות" });
+            filterCategory.Location = new Point(609, 113);
+            filterCategory.Name = "filterCategory";
+            filterCategory.Size = new Size(212, 39);
+            filterCategory.TabIndex = 18;
+            filterCategory.SelectedIndexChanged += filterCategory_SelectedIndexChanged;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
+            label11.Font = new Font("Bamberger Grunge FM", 17.9999981F);
+            label11.Location = new Point(819, 119);
+            label11.Name = "label11";
+            label11.Size = new Size(134, 33);
+            label11.TabIndex = 17;
+            label11.Text = "סנן לפי קטגוריה";
+            // 
             // Products
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1013, 571);
+            Controls.Add(filterCategory);
+            Controls.Add(label11);
+            Controls.Add(filterByName);
+            Controls.Add(label7);
             Controls.Add(productsList);
             Controls.Add(productsTabControl);
             Controls.Add(label6);
@@ -499,5 +555,9 @@
         private Label label10;
         private ListBox productsList;
         private Label label6;
+        private TextBox filterByName;
+        private Label label7;
+        private ComboBox filterCategory;
+        private Label label11;
     }
 }

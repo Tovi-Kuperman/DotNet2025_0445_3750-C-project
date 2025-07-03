@@ -293,8 +293,7 @@ namespace UI
                 {
                     if (product != null)
                     {
-                        productsList.Items.Add("!!!!!!!!!!");
-
+                        MessageBox.Show("displayProducts_Click!!!!!!!!!!!!");
                         productsList.Items.Add(
                             $"שם: {product.ProductName}, קטגוריה: {product.Category}, מחיר: {product.Price} ₪, כמות: {product.AmountInStock}"
                         );
@@ -311,6 +310,86 @@ namespace UI
         private void priceInput_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void filterByName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string nameInput = filterByName.Text; // הטקסט שהוזן בחיפוש שם
+
+                // אם לא הוזן שם, טוענים את כל הלקוחות
+                if (string.IsNullOrEmpty(nameInput))
+                {
+                    RefreshProductList(); // טוען את כל הלקוחות
+                }
+                else
+                {
+                    FilterProductsByName(nameInput); // מסנן את הלקוחות לפי שם
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("אירעה שגיאה בעת סינון המוצרים" + ex.Message,
+                                "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FilterProductsByName(string nameInput)
+        {
+            try
+            {
+                List<BO.Product?> filteredProducts = _bl.Product.ReadAll(c => c?.ProductName?.Contains(nameInput, StringComparison.OrdinalIgnoreCase) == true).ToList();
+                productsList.Items.Clear();
+                foreach (var customer in filteredProducts)
+                {
+                    if (customer != null)
+                    {
+                        var customerDetails = customer.ToString() + "\n----------------------------";
+                        var customerLines = customerDetails.Split("\n");
+                        foreach (var line in customerLines)
+                        {
+                            productsList.Items.Add(line);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("אירעה שגיאה בעת סינון המוצרים" + ex.Message,
+                                "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void filterCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (filterCategory.SelectedItem == null) return;
+try
+            {
+            Categories selectedCategory = (Categories)Enum.Parse(typeof(Categories), filterCategory.SelectedItem.ToString());
+
+            
+                List<BO.Product?> filteredProducts = _bl.Product.ReadAll(p => p != null && p.Category == selectedCategory).ToList();
+
+                productsList.Items.Clear();
+                foreach (var product in filteredProducts)
+                {
+                    if (product != null)
+                    {
+                        var productDetails = product.ToString() + "\n----------------------------";
+                        var productLines = productDetails.Split("\n");
+                        foreach (var line in productLines)
+                        {
+                            productsList.Items.Add(line);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("שגיאה בסינון לפי קטגוריה" + ex.Message,
+                                "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
+    <Code>21</Code>
+    <ProductName>לחינהב</ProductName>
+    <Category>מחזורים</Category>
+    <Price>666</Price>
+    <AmountInStock>2</AmountInStock>
+  </Product>
+  <Product>
     <Code>13</Code>
     <ProductName>מחזור אור חדש אשכנז</ProductName>
     <Category>מחזורים</Category>
-    <Price>1500</Price>
+    <Price>1200</Price>
     <AmountInStock>5</AmountInStock>
+  </Product>
+  <Product>
+    <Code>22</Code>
+    <ProductName>כע</ProductName>
+    <Category>סידורים</Category>
+    <Price>34</Price>
+    <AmountInStock>1</AmountInStock>
   </Product>
 </ArrayOfProduct>

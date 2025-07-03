@@ -22,5 +22,11 @@ namespace UI
             Products products = new Products();
             products.Show();
         }
+
+        private void customersbtn_Click(object sender, EventArgs e)
+        {
+            Customers customers = new Customers();
+            customers.Show();
+        }
     }
 }

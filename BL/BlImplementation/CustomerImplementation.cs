@@ -70,7 +70,9 @@ internal class CustomerImplementation:BlApi.ICustomer
     {
         try
         {
-            return _dal.Customer.ReadAll(c => filter!(BO.Tools.Convert(c!))).Select(c => BO.Tools.Convert(c!)).ToList()!;
+            return _dal.Customer.ReadAll(c => filter == null || filter(BO.Tools.Convert(c!)))
+            .Select(c => BO.Tools.Convert(c!))
+            .ToList();
         }
         catch (Exception ex)
         {

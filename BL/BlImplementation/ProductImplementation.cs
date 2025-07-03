@@ -12,7 +12,7 @@ internal class ProductImplementation : BlApi.IProduct
     {
         try
         {
-            return _dal.Product.Create(BO.Tools.Convert(item));
+            return _dal.Product.Create((DO.Product)BO.Tools.Convert(item));
         }
         catch (Exception ex)
         {
@@ -114,7 +114,7 @@ internal class ProductImplementation : BlApi.IProduct
     {
         try
         {
-            _dal.Product.Update(BO.Tools.Convert(item));
+            _dal.Product.Update((DO.Product)BO.Tools.Convert(item));
         }
         catch (Exception ex)
         {

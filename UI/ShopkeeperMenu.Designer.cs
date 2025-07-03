@@ -57,6 +57,7 @@
             customersbtn.TabIndex = 2;
             customersbtn.Text = "לקוחות";
             customersbtn.UseVisualStyleBackColor = false;
+            customersbtn.Click += customersbtn_Click;
             // 
             // salesbtn
             // 

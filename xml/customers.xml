@@ -1,3 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfCustomer  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Customer>
+    <Id>567890</Id>
+    <Name>אהרון כהן</Name>
+    <Address>המגיד מדובנא 12 אלעד</Address>
+    <PhoneNumber>089760898</PhoneNumber>
+  </Customer>
+  <Customer>
+    <Id>8976543</Id>
+    <Name>יהודה הלוי</Name>
+    <Address>נתיבות המשפט 61 מודיעין עילית</Address>
+    <PhoneNumber>089746320</PhoneNumber>
+  </Customer>
 </ArrayOfCustomer>

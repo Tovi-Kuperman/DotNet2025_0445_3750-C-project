@@ -1,4 +1,4 @@
-﻿using DalApi;
+using DalApi;
 using DO;
 using System.Reflection;
 using System.Xml.Serialization;
@@ -178,7 +178,7 @@ internal class CustomerImplementation : ICustomer
         LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "start readAll in customer");
         try
         {
-            List<Customer> listCustomer = Deserialize();
+            List<Customer> listCustomer = Deserialize() ?? new List<Customer>();
             //Serialize(listCustomer);
             LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "end readAll in customer");
             if (filter == null) return listCustomer;

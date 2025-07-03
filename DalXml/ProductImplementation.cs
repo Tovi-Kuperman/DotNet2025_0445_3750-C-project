@@ -94,7 +94,7 @@ internal class ProductImplementation: IProduct
                 throw new DalIdAllreadyExists("Product");
             }
             listProduct.Add(p);
-
+            Serialize(listProduct);
             return p.Code;
         }
         catch (Exception ex)
